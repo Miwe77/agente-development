@@ -1,11 +1,12 @@
 pipeline {
-   agent none
    
+    agent none 
+
     stages {
         stage('Build') {
-         agent{    
-          label 'java && dev'        
-    }
+            agent{
+                label 'dev && java'
+            }
             steps {
             
                 echo "Building ... in the node ${NODE_NAME}  and in the executor ${EXECUTOR_NUMBER}"
@@ -13,18 +14,18 @@ pipeline {
             }
         }
         stage('Test') {
-             agent{    
-          label 'java && test'        
-    }
+            agent{
+                label 'test && java'
+            }
             steps {
               echo "Testing ... in the node ${NODE_NAME}  and in the executor ${EXECUTOR_NUMBER}"
               sh 'uname -n'
             }
         }
         stage('Deploy') {
-             agent{    
-          label 'java  && prod'        
-    }
+            agent{
+                label 'prod && java'
+            }
             steps {
              echo "Deploying ... in the node ${NODE_NAME}  and in the executor ${EXECUTOR_NUMBER}"  
              sh 'uname -n'
