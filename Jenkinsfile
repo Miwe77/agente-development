@@ -7,21 +7,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
+                echo "Building... in ${NODE_NAME}"
                 
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing...'
+                echo "Testing... in ${NODE_NAME}"
                 
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
-                sh 'uname -n'
-                
+                echo "Deploying... in ${NODE_NAME}"                
             }
         }
     }
