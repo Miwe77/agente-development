@@ -1,5 +1,6 @@
 pipeline {
-    agent {
+   
+    agent{
         node {
             label 'Development'
         }
@@ -7,19 +8,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building... in ${NODE_NAME}"
-                
+            
+                echo "Building ... in the node ${NODE_NAME}  and ion the executor ${EXECUTOR_NUMBER}"
             }
         }
         stage('Test') {
             steps {
-                echo "Testing... in ${NODE_NAME}"
-                
+              echo "Testing ... in the node ${NODE_NAME}  and ion the executor ${EXECUTOR_NUMBER}"
             }
         }
         stage('Deploy') {
             steps {
-                echo "Deploying... in ${NODE_NAME}"                
+             echo "Deploying ... in the node ${NODE_NAME}  and ion the executor ${EXECUTOR_NUMBER}"  
             }
         }
     }
